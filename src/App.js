@@ -5,6 +5,7 @@ import Balance from './components/Balance'
 import IncomeExpenses  from './components/IncomeExpenses'
 import TransactionList  from './components/TransactionList'
 import AddForm  from './components/AddForm'
+import Footer  from './components/Footer' 
 
 
 
@@ -21,6 +22,7 @@ function App() {
         <TransactionList />
         <AddForm />
       </div>
+      <Footer />
     </div>
   );
 }
