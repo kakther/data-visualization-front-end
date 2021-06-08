@@ -18,6 +18,7 @@ const Footer = () => {
                 {/*COLUMN3*/}
                 <div className='col'>
                     <h3>About</h3>
+                    <h4>Project</h4>
                 </div>
             </div>
 
