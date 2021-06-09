@@ -14,17 +14,48 @@ class App extends React.Component {
     vacation: []
   }
 
-  getVacation = () => {
-    axios
-      .get('http://localhost:8000')
-  }
-
 
   handleChange = (event) => {
     this.setState({
       [event.target.id]: event.target.value,
     });
   };
+
+
+
+
+
+  addVacation = (vacation) => {
+    vacation.preventDefault()
+    axios.post('https://data-visualization-back-end.herokuapp.com/', vacation)
+    .then((response) => {
+      this.getVacation()
+      this.setState({
+        name: '',
+        description: '',
+        img: '',
+        cost: '',
+        notes: ''
+      })
+    })
+  }
+
+
+  getVacation = () => {
+    axios
+      .get('https://data-visualization-back-end.herokuapp.com/')
+      .then(
+        (response) =>this.setState({vacation: response.data.reverse()}),
+        (err) => console.error(err)
+      )
+      .catch((err) => console.error(err));
+  };
+
+
+
+
+
+  
 
 
 
