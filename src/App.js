@@ -2,6 +2,7 @@ import React from 'react'
 import Nav from './components/Nav'
 import AddForm from './components/AddForm'
 import Footer from './components/Footer'
+import axios from 'axios'
 
 class App extends React.Component {
   state = {
@@ -13,6 +14,11 @@ class App extends React.Component {
     vacation: []
   }
 
+  getVacation = () => {
+    axios
+      .get('http://localhost:8000')
+  }
+
 
   handleChange = (event) => {
     this.setState({
@@ -20,10 +26,7 @@ class App extends React.Component {
     });
   };
 
-  handleChange = (event) => {
-    event.preventDefault();
-    
-  }
+
 
 
 
