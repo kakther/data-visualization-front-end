@@ -25,9 +25,9 @@ class App extends React.Component {
 
 
 
-  addVacation = (vacation) => {
-    vacation.preventDefault()
-    axios.post('https://data-visualization-back-end.herokuapp.com/', vacation)
+  addVacation = (e) => {
+   
+    axios.post('https://data-visualization-back-end.herokuapp.com/')
     .then((response) => {
       this.getVacation()
       this.setState({
@@ -52,13 +52,38 @@ class App extends React.Component {
   };
 
 
+deleteVacation = (e) => {
+  axios
+    .delete('https://data-visualization-back-end.herokuapp' + e.target.value)
+    .then((response) => {
+      this.getVacation();
+    });
+};
 
 
 
-  
+updateVacation = (e) => {
+  e.preventDefault();
+  const id = e.target.id;
+  axios
+    .put('https://data-visualization-back-end.herokuapp' + id, this.state)
+    .then((response) => {
+      this.getVacation();
+      this.setState({
+        name: '',
+        description: '',
+        img: '',
+        cost: '',
+        notes: ''
+      });
+    })
+    .catch((error) => console.error(error));
+}
 
 
-
+componentDidMount = () => {
+  this.getVacation();
+};
 
 
 
@@ -66,8 +91,19 @@ class App extends React.Component {
   render = () => {
     return (
       <div>
-        <Nav />
-        <AddForm />
+      <Nav />
+        <AddForm addVacation={this.addVacation} />
+        {this.state.vacation.map((vacation) => {
+          
+          return (
+            <> 
+              vacation={vacation}
+              updateVacation={this.updateVacation}
+            
+            </>
+          )
+        })}
+      
         <Footer />
       </div>
     )

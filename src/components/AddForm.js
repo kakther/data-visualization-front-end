@@ -7,7 +7,7 @@ export default class AddForm extends Component {
     description: '',
     img: '',
     cost: '',
-    notes: '',
+    note: '',
   
   }
 
@@ -18,9 +18,17 @@ export default class AddForm extends Component {
     });
   };
 
+
  handlesubmit = (e) => {
    e.preventDefault();
-   axios.post('')
+   this.props.addVacation(this.state);
+   this.setState({
+      name: '',
+      description: '',
+      img: '',
+      cost: '',
+      notes: '',
+   })
  }
 
 
@@ -34,28 +42,33 @@ export default class AddForm extends Component {
             <div className='input-box'>
               <label htmlFor='name'>Name</label>
               <input type='text' id='name'
-                     onChange={this.handleChange}/>
+                     onChange={this.handleChange}
+                     value={this.state.name}/>
             </div>
 
             <div className='input-box'>
               <label htmlFor='name'>Description</label>
               <input type='text' id='description'
-                      onChange={this.handleChange}/>
+                      onChange={this.handleChange}
+                      value={this.state.description}/>
             </div>
             <div className='input-box'>
               <label htmlFor='name'>Image</label>
               <input type='text' id='img'
-                     onChange={this.handleChange}/>
+                     onChange={this.handleChange}
+                     value={this.state.img}/>
             </div>
             <div className='input-box'>
               <label htmlFor='name'>Cost</label>
               <input type='text' id='cost'
-                      onChange={this.handleChange}/>
+                      onChange={this.handleChange}
+                      value={this.state.cost}/>
             </div>
             <div className='input-box'>
               <label htmlFor='name'>Note</label>
               <input type='text' id='note'
-                    onChange={this.handleChange}/>
+                    onChange={this.handleChange}
+                    value={this.state.note}/>
             </div>
             <br />
             <div className='vacation-button'>

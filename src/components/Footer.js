@@ -4,21 +4,26 @@ const Footer = () => {
   return (
     <div className='main-footer'>
         <div className='container'>
+
             <div className='row'>
                 {/*COLUMN1*/}
                 <div className='col'>
-                    <h3>Topics</h3>
+                    <h3>vacationTracker</h3>
+                    <hr />
+                    <ul>
+                        <li>About us</li>
+                        <li>Partner with us</li>
+                    </ul>
                 </div>
 
                 {/*COLUMN2*/}
                 <div className='col'>
                     <h3>Help</h3>
-                </div>
-
-                {/*COLUMN3*/}
-                <div className='col'>
-                    <h3>About</h3>
-                    <h4>Project</h4>
+                    <ul>
+                        <li>FAQ</li>
+                        <li>Contact us</li>
+                        <li>Terms of use</li>
+                    </ul>
                 </div>
             </div>
 
